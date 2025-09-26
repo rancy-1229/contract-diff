@@ -1,0 +1,223 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.upload-container {
+  margin: 20px 0;
+}
+
+.document-list {
+  margin-top: 20px;
+}
+
+.comparison-section {
+  margin-top: 30px;
+  padding: 20px;
+  border: 1px solid #d9d9d9;
+  border-radius: 6px;
+}
+
+/* DiffViewer 样式 */
+.diff-viewer {
+  padding: 16px;
+}
+
+.summary-card .stat-item {
+  text-align: center;
+}
+
+.summary-card .stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 8px;
+}
+
+.diff-item {
+  border: 1px solid #f0f0f0;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  padding: 12px;
+  transition: all 0.3s;
+}
+
+.diff-item:hover {
+  border-color: #1890ff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.diff-item.selected {
+  border-color: #1890ff;
+  background-color: #e6f7ff;
+}
+
+.diff-item-content {
+  width: 100%;
+}
+
+.diff-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.diff-content {
+  margin-bottom: 8px;
+  word-break: break-all;
+}
+
+.diff-meta {
+  font-size: 12px;
+}
+
+.diff-detail {
+  padding: 16px;
+  background: #fafafa;
+  border-radius: 6px;
+}
+
+/* ComparisonDisplay 样式 */
+.comparison-display {
+  padding: 16px;
+}
+
+.comparison-display .ant-image {
+  max-width: 100%;
+  height: auto;
+}
+
+.comparison-display .ant-image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 调整图片大小 - 让合同图片更大 */
+.comparison-display .ant-card-body {
+  padding: 24px;
+}
+
+.comparison-display .ant-image {
+  width: 100%;
+  max-width: 1000px; /* 适中的最大宽度 */
+  margin: 0 auto;
+  display: block;
+}
+
+.comparison-display .ant-image img {
+  width: 100%;
+  height: auto;
+  max-height: 1000px; /* 适中的最大高度 */
+  object-fit: contain;
+}
+
+/* 图片对比显示优化 */
+.comparison-display img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.2s ease;
+}
+
+.comparison-display img:hover {
+  transform: scale(1.02);
+}
+
+/* PDF查看器样式优化 */
+.pdf-viewer-container {
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  overflow: hidden; /* 改为hidden，防止内容溢出 */
+  box-sizing: border-box;
+}
+
+.pdf-viewer-container canvas {
+  max-width: 100% !important; /* 限制最大宽度，防止超出容器 */
+  max-height: 100% !important; /* 限制最大高度 */
+  width: auto;
+  height: auto;
+}
+
+/* 响应式图片显示 */
+@media (max-width: 768px) {
+  .comparison-display img {
+    min-width: 200px;
+    min-height: 150px;
+  }
+  
+  .comparison-display .ant-image {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .comparison-display img {
+    min-width: 400px;
+    min-height: 300px;
+  }
+  
+  .comparison-display .ant-image {
+    max-width: 1200px;
+  }
+}
+
+/* 响应式PDF显示 */
+@media (max-width: 768px) {
+  .pdf-viewer-container {
+    min-height: 300px;
+  }
+  
+  .pdf-viewer-container canvas {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+}
+
+@media (min-width: 1200px) {
+  .pdf-viewer-container {
+    min-height: 500px;
+  }
+  
+  .pdf-viewer-container canvas {
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+}
+
+/* 确保PDF对比容器正确布局 */
+.comparison-pdf-container {
+  display: flex;
+  height: 100%;
+  gap: 8px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.comparison-pdf-container > div {
+  flex: 1 1 50%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* 差异标记样式 */
+.comparison-display canvas {
+  border-radius: 4px;
+}
